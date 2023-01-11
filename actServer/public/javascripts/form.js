@@ -53,7 +53,9 @@ function myFunction() {
 nextBtn.addEventListener("click", () => {
 
     if (step === 1) {
-        if (document.getElementById('title').value && document.getElementById('obj').value && document.getElementById('myfile1').value) {
+        if (document.getElementById('title').value && document.getElementById('obj').value && document.getElementById('myfile1').value &&
+        document.getElementById('currYear').value!="none" && document.getElementById('semester').value!="none" && document.getElementById('academic').value!="none"
+        ) {
             step++;
             progressBar.style.width = "40%"
             setTimeout(() => {
