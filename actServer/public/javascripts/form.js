@@ -71,7 +71,8 @@ nextBtn.addEventListener("click", () => {
 
     }
     if (step === 2) {
-        if (document.getElementById('yname').value && document.getElementById('email').value && document.getElementById('socialink').value && document.getElementById('socialink1').value) {
+        // if (document.getElementById('yname').value && document.getElementById('email').value && document.getElementById('socialink').value && document.getElementById('socialink1').value) 
+        {
             step++;
             progressBar.style.width = "75%"
             setTimeout(() => {
@@ -131,3 +132,38 @@ prevBtn.addEventListener("click", () => {
         step--
     }
 })
+
+//Dynamic field creation in form step 2
+const addBtn = document.querySelector('.add');
+const input = document.querySelector(".member-info");
+
+function removeInput(){
+    this.parentElement.remove();
+}
+
+function addInput(){
+    const name = document.createElement("input");
+    name.type = "text";
+    name.placeholder = "Enter Member Name";
+
+    const prn = document.createElement("input");
+    prn.type = "text";
+    prn.placeholder = "Enter Member PRN";
+
+    const btn=document.createElement("a");
+    btn.className= "delete";
+    btn.innerHTML="&times";
+
+    btn.addEventListener("click", removeInput);
+
+    const flex=document.createElement("div");
+    flex.className="flex";
+
+    input.appendChild(flex);
+    flex.appendChild(name);
+    flex.appendChild(prn);
+    flex.appendChild(btn);
+
+
+}
+addBtn.addEventListener("click", addInput);

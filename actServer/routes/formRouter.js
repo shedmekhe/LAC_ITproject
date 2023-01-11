@@ -13,57 +13,54 @@ const fs=require('fs');
 const  multer=require('multer');
 const storage=multer.diskStorage({
     destination:async(req,file,cb)=>{
-        // console.log(req.body.obj);
-        // var projectFolder = `./local_storage/${req.body.obj}`;
-        //     let createDir = await fs.mkdirSync(projectFolder, { recursive: true });
-        //     var projectFolder1 = `${createDir}/${req.body.socialink}`;
-        //     let createDir1= await fs.mkdirSync(projectFolder1, { recursive: true });
-        //     var projectFolder2 = `${createDir1}/${req.body.socialink1}/${req.body.title}`;
-        //     let createDir2 = await fs.mkdirSync(projectFolder2, { recursive: true });
-        //     console.log(`${createDir}`);
-        //     console.log(`${createDir1}`);
-        //     console.log(`${createDir2}`);
-        //     if(fs.existsSync(`${createDir2}`))
-        //         cb(null,`${createDir2}`)
-
-        // if(!fs.existsSync(projectFolder))
-        // {
-        //     var createDir = await fs.mkdirSync(`${projectFolder}${req.body.title}/`, { recursive: true });
-        //     cb(null,`${createDir}`)
-        // }
-        // else
-        // {
-                
-        // }
-
         try{
-            console.log(`${req.body.socialink}`);
-            console.log(`${req.socialink1}`);
-            var projectFolder = `./local_storage/${req.body.obj}`;
-            const createDir = await fs.mkdirSync(projectFolder, { recursive: true });
-            if(fs.existsSync(`${projectFolder}`))
-            {
-                var projectFolder1 = `${projectFolder}/${req.body.socialink}/${req.body.socialink1}`;
-                const createDir1 = await fs.mkdirSync(projectFolder1, { recursive: true });
-                if(fs.existsSync(`${projectFolder1}`))
-                { 
-                    var projectFolder2 = `${projectFolder1}/${req.body.title}`;
-                    const createDir2 = await fs.mkdirSync(projectFolder2, { recursive: true });
+            console.log(`hello>>>>>>>+${req.body.currYear}`)
+                var projectFolder0 = `./local_storage`;
+                const createDir0 = await fs.mkdirSync(projectFolder0, { recursive: true });
+            try{
+                if(fs.existsSync(`${projectFolder0}`))
+                {
+                    var projectFolder=`${projectFolder0}/${req.body.currYear}`
+                    const createDir=await fs.mkdirSync(projectFolder, { recursive: true });
 
-                    console.log(`${createDir}`);
-                    console.log(`${createDir1}`);
-                    console.log(`${createDir2}`);
                     try
                     {
-                    if(fs.existsSync(`${createDir2}`))
-                        cb(null,`${createDir2}/`)
-                    }catch(err){
-                        console.error(err);
-                    }
+                        if(fs.existsSync(`${projectFolder}`))
+                    {
+                        var projectFolder1 = `${projectFolder}/${req.body.semester}/${req.body.academic}`;
+                        const createDir1 = await fs.mkdirSync(projectFolder1, { recursive: true });
+                        if(fs.existsSync(`${projectFolder1}`))
+                        { 
+                            var projectFolder2 = `${projectFolder1}/${req.body.title}`;
+                            const createDir2 = await fs.mkdirSync(projectFolder2, { recursive: true });
+        
+                            console.log(`${createDir}`);
+                            console.log(`${createDir1}`);
+                            console.log(`${createDir2}`);
+                            try
+                            {
+                            if(fs.existsSync(`${createDir2}`))
+                                cb(null,`${createDir2}/`)
+                            }catch(err){
+                                console.error(err);
+                            }
+                        }
                 }
+          
           
             
             }
+            catch(err){
+                console.error(err);
+            }
+            }
+        }
+            catch(err)
+            {
+                console.error(err);
+            }
+
+            
 
             // var projectFolder = `./local_storage/${req.body.obj}/${req.body.socialink}${req.body.socialink1}/`;
 
@@ -113,6 +110,7 @@ formRouter.route('/')
 .post( upload,async(req,res)=>{
     try{
         console.log("hello...123........");
+        console.log(req.body)
         await Projects.create(
             req.body
          )   

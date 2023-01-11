@@ -57,35 +57,72 @@
             </div>
             {{!-- <button id="loadData" type="button" onclick="uploading()">Upload</button> --}}
             <!-- <div class="form"> -->
-               
-            <form method="POST" action="/form" enctype="multipart/form-data" >
+
+            <form method="POST" action="/form" enctype="multipart/form-data">
                 <div class="step-one" id="formStepOne">
                     <h3>Project details</h3>
                     <input type="text" placeholder="Project Title" id="title" name="title" required>
                     <input type="text" placeholder="Project Objective" id="obj" name="obj" minlength="80" required>
-                    <label for="myfile" style="margin-right: 63px">Project description/ppt/report </label>
-                    <input type="file" id="myfile" class="upload-box" name="myfile"><br>
-                    <label for="myfile" style="margin-right: 10px">Upload logo or poster of your project</label>
-                    <input type="file" id="myfile1" class="upload-box" name="myfile1">
+                    <div class="upload-flex">
+                        <label for="myfile">Project report </label>
+                        <input type="file" id="myfile" class="upload-box" name="myfile"><br>
+                        <label for="myfile">Upload logo or poster of your project</label>
+                        <input type="file" id="myfile1" class="upload-box" name="myfile1">
+                    </div>
+                    <div class="flexdropdown">
+                        <div class="dropdowns">
+                            <label for="currYear">Academic Year:</label><br>
+                            <select id="currYear" name="currYear" class="select">
+                                <option  value="none" selected disabled hidden>Select</option>
+                                <option  value="2021-2022">2021-22</option>
+                                <option  value="2022-2023">2022-23</option>
+                                <option  value="2023-2024">2023-24</option>
+                            </select>
+                        </div>
+                        <div class="dropdowns" class="select">
+                            <label for="semester">Semester</label><br>
+                            <select id="semester" name="semester">
+                                <option value="none" selected disabled hidden>Select</option>
+                                <option value="SEM-I">SEM-I</option>
+                                <option value="SEM-II">SEM-II</option>
+                            </select>
+                        </div>
+                        <div class="dropdowns" class="select">
+                            <label for="academic">Year</label><br>
+                            <select id="academic" name="academic">
+                                <option value="none" selected disabled hidden>Select</option>
+                                <option value="SY">SY</option>
+                                <option value="TY">TY</option>
+                                <option value="BTech">BTech</option>
+                            </select>
+                        </div>
+                    </div>
                 </div>
 
                 <div class="step-two" id="formStepTwo">
-                    <input type="text" placeholder="Your Name" id="yname" name="yname" required>
-                    <input type="email" placeholder="Email" id="email" name="email" required>
-                    <input type="text" placeholder="Github Profile Link" id="socialink" name="socialink" required>
-                    <input type="text" placeholder="LinkedIn Profile Link" id="socialink1" name="socialink1" required>
-                    <input type="text" placeholder="Your Project Guide / Mentor Name (if any)" id="gname" name="gname">
+                    <div class="wrap">
+                        <div class="flexwrap">
+                            <h4>Team Members Information</h4>
+                            <a href="#" class="add">&plus;</a>
+                        </div>
+                        <div class="member-info">
+                            <div class="leader-info">
+                                <input type="text" placeholder="Your Name" id="members.yname" name="memers.yname" >
+                                <input type="text" placeholder="Your PRN" id="members.prn" name="members.prn" >
+                            </div>
 
-                    <!-- <div class="buttons" id="buttonsCTN">
-                        <button id="prev" type="submit">Previous</button>
-                        <button id="next" type="submit" onclick="myfunction()">Next</button>
-                    </div> -->
+                        </div>
+                        {{!-- <input type="text" placeholder="Your Project Guide / Mentor Name (if any)" id="gname"
+                            name="gname"> --}}
+
+                    </div>
+
                 </div>
 
                 <div class="step-three" id="formStepThree">
                     <!-- <input type="text" placeholder="Technology Stack Used" id="techstack"> -->
                     <div class="stackupload">
-                        <h4 for="stackupload">Choose technologies you used</h4>
+                        <h4 for="stackupload">Technologies used</h4>
                         <select name="technologies" id="technologies" multiple>
                             <option value="HTML">HTML</option>
                             <option value="CSS">CSS</option>
@@ -113,7 +150,9 @@
                     <input type="file" id="apk_views" class="upload-box" name="apk_views" multiple><br>
                     <input type="text" placeholder="Project Repository link (Github)" name="repolink" id="repolink">
                     <div class="flex-input">
-                        <input type="text" placeholder="Website link" name="weblink" id="weblink">
+                        {{!-- <input type="text" placeholder="Website link" name="weblink" id="weblink"> --}}
+                        <input type="text" placeholder="Your Project Guide / Mentor Name (if any)" id="gname"
+                            name="gname">
                         {{!-- <label for="myfile" style="margin-left: 50px">App apk</label> --}}
                         {{!-- <input type="file" id="myfile" class="upload-box" name="apkf"><br> --}}
                         {{!-- <button id="done" type="submit" onclick="postData()">Done</button> --}}
@@ -124,73 +163,30 @@
                         <button id="next" type="submit" onclick="myfunction()">Next</button>
                     </div> -->
                 </div>
-                <!-- <div class="step-four" id="formStepFour">
 
-                    <div class="section-one">
-                        <div class="inform-section">
-                            <p class="title">Full name : </p>
-                            <p class="result-info" id="nameText"></p>
-                        </div>
-                        <div class="inform-section">
-                            <p class="title" >Username : </p>
-                            <p class="result-info" id="userText"></p>
-                        </div>
-                        <div class="inform-section">
-                            <p class="title">Email : </p>
-                            <p class="result-info" id="emailText"></p>
-                        </div>
-                        <div class="inform-section">
-                            <p class="title">Birth day : </p>
-                            <p class="result-info" id="dateText"></p>
-                        </div>
-                    </div>
-
-                    <div class="section-two">
-
-                        <div class="inform-section">
-                            <p class="title">City : </p>
-                            <p class="result-info" id="cityText"></p>
-                        </div>
-                        <div class="inform-section">
-                            <p class="title">State : </p>
-                            <p class="result-info" id="stateText"></p>
-                        </div>
-
-                        <div class="inform-section">
-                            <p class="title">Country : </p>
-                            <p class="result-info" id="countryText"></p>
-                        </div>
-
-                        <div class="inform-section">
-                            <p class="title">Phone : </p>
-                            <p class="result-info" id="phoneText"></p>
-                        </div>
-
-                    </div>
-
-                </div> -->
-
-              <div class="buttons" id="buttonsCTN">
-                <button id="prev" type="button">Previous</button>
-                <button id="next" type="button" onclick="myfunction()">Next</button>
-                 <button id="done" type="submit" onclick="postData()">Done</button>
-
-            </div>
+                <div class="buttons" id="buttonsCTN">
+                    <button id="prev" type="button">Previous</button>
+                    <button id="next" type="button" onclick="myfunction()">Next</button>
+                    <button id="done" type="submit" onclick="postData()">Done</button>
+                </div>
             </form>
 
-            {{!-- <div class="buttons" id="buttonsCTN">
-                <button id="prev" type="button">Previous</button>
+            {{!-- <div class="buttons" id="buttonsCTN" MAyuresh >
+                <button id="prev" type="buttonifhe">Previous</button>
                 <button id="next" type="button" onclick="myfunction()">Next</button>
-                 <button id="done" type="submit" onclick="postData()">Done</button>
+                <button id="done" type="submit" onclick="postData()">Done</button>
 
             </div> --}}
 
         </div>
-        
+
 
 
     </div>
-
+    <script>
+        var selectedValue = document.getElementById("currYear").value();
+        console.log(`${selectedValue}`);
+    </script>
 
     <script src="javascripts/form.js"></script>
     <script src="javascripts/multi-select-tag.js"></script>

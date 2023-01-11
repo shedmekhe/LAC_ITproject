@@ -2,7 +2,7 @@
 
   margin: 0;
   padding: 0;
-
+  /* border: 2px solid red; */
 }
 
 body{
@@ -49,16 +49,19 @@ nav img{
   /* perspective: 10px; */
   margin-left: 50px ;
   margin-top: 100px;
-  
+  overflow: hidden;
+  position: relative;
 }
 
 .main .container{
 
   width: 60%;
   height: 75%;
+  size: fixed;
   background-color: white;
   transition: 0.8s;
   box-shadow: 0 0 13px 0 #00000040;
+  /* overflow: auto; */
 
 }
 
@@ -111,6 +114,12 @@ nav img{
   background-color: rgb(99,179,152);
   color: white;
 }
+.step-one h3{
+  justify-content: center;
+  align-items: center;
+  margin-left: 40%;
+  text-transform: uppercase;
+}
 
 .main .container .progress-form .progress-bar{
 
@@ -122,6 +131,74 @@ nav img{
   margin-left: 13%;
 
 }
+.flexdropdown{
+  display: flex;
+}
+/*------------------------Dropdown----------------------*/
+.drop-box{
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+  border: 1px black solid;
+  border-radius: 20px;
+  background-color: rgb(232, 232, 232);
+  border-width: 2px;
+}
+.drop-box:hover{
+  box-shadow: 4px 4px 4px 4px rgba(150, 150, 150, 0.617);
+
+}
+
+#currYear, #academic, #semester{
+  height: 2rem;
+  width: 6rem;
+  background-color: white;
+  border: 1px solid lightgray;
+  border-radius: 10px;
+  appearance: none;
+  font-size: 16px;
+  cursor: pointer;
+  padding: 0 20px 0 10px;
+  transition: all 0.2s ease;
+}
+#currYear:hover, #academic:hover, #semester:hover {
+  border-color: rgba(144, 239, 180, 0.397);
+}
+#currYear:focus, #academic:focus, #semester:hover{
+  border-color: rgb(66, 195, 66);
+  outline: none;
+}
+#search-button {
+  height: 5rem;
+  width: 100px;
+  background-color: rgb(66, 195, 66);
+  border: 2px solid black;
+  border-radius: 3px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  margin-top: 3rem;
+}
+#search-button:hover{
+  transform: scale(1.05);
+  transition: 0.5s ease-in-out;
+}
+select{
+  width: 100%;
+  height: 100%;
+  border-radius: 0.5rem;
+  margin: 2rem 1.5rem;
+}
+.dropdowns{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.dropdowns label{
+  font-size: 1rem;
+  font-weight: 600;
+}
+/*-----------------------------------------------------------------*/
 .main .container form{
 
   width: 83%;
@@ -134,8 +211,15 @@ nav img{
   padding: 1%;
 
 }
-.main .container form .step-one label{
+.main .container form .step-one .upload-flex{
   height: 50px;
+  font-weight: 500;
+  justify-content: center;
+  align-items: center;
+  margin-top: 1rem;
+}
+.main .container form .step-one .upload-flex input{
+  margin-right: 20px;
 }
 .container form .upload-box{
   font-size:15px;
@@ -163,7 +247,12 @@ nav img{
 .main .container form .step-one{
 
   width: 100%;
+  overflow: hidden ;
 
+}
+.upload-flex{
+  display: flex;
+  width: auto;
 }
 
 .main .container form .step-three .flex-input{
@@ -176,7 +265,7 @@ nav img{
 
 }
 
-.main .container form .step-three .flex-input #weblink{
+.main .container form .step-three .flex-input #gname{
 
   width: 100%;
   height: 18%;
@@ -227,7 +316,45 @@ nav img{
 .main .container form .step-two{
 
   width: 100%;
+  height: 100%;
   display: none;
+  /* overflow: auto; */
+  /* overflow-x: hidden; */
+  /* overflow-block: hidden; */
+}
+.flexwrap{
+  align-items: center;
+}
+.flexwrap h4{
+ margin-left: 30%;
+ font-weight: 600;
+ text-transform: uppercase;
+ margin-bottom: 1rem;
+}
+.flexwrap .add{
+  float: right;
+}
+.add{
+  text-decoration: none;
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+  background-color: #fff;
+  font-size: 2rem;
+  font-weight: bold;
+  color: black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.step-two .member-info{
+  display: flex;
+  flex-direction: column;
+  height: 70%;
+  overflow: auto;
+}
+.leader-info{
+  display: flex;
 }
 
 .main .container form .step-two input{
@@ -240,7 +367,27 @@ nav img{
   outline: none;
   margin-bottom: 3%;
   font-size: 1.2vw;
+  margin-right: 1rem;
 
+}
+.flex{
+  display: flex;
+  gap: 1.5em;
+}
+.delete{
+  text-decoration: none;
+  display: inline-block;
+  background: red;
+  color: #fff;
+  font-size: 1.5rem;
+  font-weight: bold;
+  width: 50px;
+  height: 30px;
+  margin-left: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
 }
 
 
@@ -250,6 +397,7 @@ nav img{
   display: none;
 
 }
+
 
 /* .main .container .form .step-three input{
 
@@ -339,8 +487,18 @@ nav img{
   display: flex;
   align-items: center;
   justify-content: right;
-
+  position: sticky;
+  position: -webkit-sticky;
 }
+#gname{
+  position: absolute;
+  position: sticky;
+  position: -webkit-sticky;
+  justify-content: end;
+  align-items: flex-end;
+  margin-bottom: 4rem;
+}
+
 
 .main .container .buttons button{
 

@@ -1,6 +1,7 @@
 * {
   margin: 0;
   padding: 0;
+  /* border: 2px red solid; */
 }
 
 html {
@@ -231,15 +232,86 @@ nav ul li a span{
 }
 /*----------------------------------- Projects search section --------------------------*/
 .projects-div .project-content{
-  margin-top: 2%;
-  margin-left: 46%;
+  margin-top: 6rem;
+  margin-left: 35%;
+
 
 }
 .projects-div .project-content h1{
   font-family: 'Montserrat', sans-serif;
+  font-weight: 900;
+  font-size: 2rem;
+
 }
-.dropdown{
-  margin-left: 30%;
+
+form {
+  display: flex;
+  flex-direction: row;
+  padding: 2rem;
+  margin-top: 0.5rem;
+}
+.drop-box{
+  width: 100%;
+  height: 100%;
+  margin:0 1rem;
+  box-sizing: border-box;
+  border: 1px black solid;
+  border-radius: 20px;
+  background-color: rgb(232, 232, 232);
+  border-width: 2px;
+  z-index: 10;
+}
+.drop-box:hover{
+  box-shadow: 4px 4px 4px 4px rgba(150, 150, 150, 0.617);
+
+}
+
+#currYear, #academic, #semester{
+  height: 4rem;
+  width: 40rem;
+  background-color: white;
+  border: 1px solid lightgray;
+  border-radius: 10px;
+  appearance: none;
+  font-size: 16px;
+  cursor: pointer;
+  padding: 0 20px 0 10px;
+  transition: all 0.2s ease;
+}
+#currYear:hover, #academic:hover, #semester:hover {
+  border-color: rgba(144, 239, 180, 0.397);
+}
+#currYear:focus, #academic:focus, #semester:hover{
+  border-color: rgb(66, 195, 66);
+  outline: none;
+}
+#search-button {
+  height: 5rem;
+  width: 100px;
+  background-color: rgb(66, 195, 66);
+  border: 2px solid black;
+  border-radius: 3px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  margin-top: 3rem;
+}
+#search-button:hover{
+  transform: scale(1.05);
+  transition: 0.5s ease-in-out;
+}
+select{
+  width: 100%;
+  height: 100%;
+  margin: 2rem 2rem;
+  border-radius: 0.5rem;
+}
+.dropdowns{
+  margin: 0 2rem;
+}
+.dropdowns label{
+  font-size: 2rem;
+  font-weight: 500;
 }
 .grid-row {
   display: grid;
@@ -363,11 +435,56 @@ span,p {
 
 
 
-@media screen and (max-width: 800px) {
-  body {
-    font-size: 14px;
+@media screen and (max-width: 474px) {
+  .navigation {
+    width: 300%;
   }
+  .homedata{
+    width: 300%;
+  }
+  .homedata .col-1{
+    justify-content: center;
+    align-items: center;
+    margin: 0 15%;
+  }
+  .homedata img{
+   display: none;
+  }
+  .homepage{
+    width: 300%;
+  }
+  .dropdowns{
+    justify-content: center;
+    align-items: center;
+  }
+  .project-content h1{
+    justify-content: center;
+    align-items: center;
+  }
+  .drop-box{
+    width: 40%;
+    margin: 0 10%;
+    margin-left: 25%;
+    justify-content: center;
+    align-items: center;
+  }
+  form{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
 }
+/* .col-2{
+  flex-basis: 40%;
+  min-width: 700px;
+  margin-bottom: 30px;
+}
+.col-2 img{
+  width: 150%;
+  margin-left: -40%;
+} */
 
 @media screen and (max-width: 800px) {
   .left {

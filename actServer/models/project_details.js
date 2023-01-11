@@ -19,26 +19,18 @@ const detailSchema=new Schema({
         // default:"https://drive.google.com/file/d/1WWQrD7PDI3YC_7NwOzWGsjGjrLGl6Sy5/view?usp=share_link"
         // required:true
     },
-    yname:{
+    currYear:{
         type:String,
-        required:true
+        // required:true
     },
-    email:{
+    semester:{
         type:String,
-        required:true
+        // required:true
     },
-    socialink:{
+    academic:{
         type:String,
-        required:true
+        // required:true
     },
-    socialink1:{
-        type:String,
-        required:true
-    },
-    gname:{
-        type:String,
-    },
-    // {{type:String}}
     technologies:[],
     apk_views:[],
     vid1:{
