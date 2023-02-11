@@ -9,15 +9,6 @@ const detailSchema=new Schema({
     },
     obj:{
         type:String,
-        required:true
-    },
-    myfile:{
-        type:String,
-    },
-    myfile1:{
-        type:String,
-        // default:"https://drive.google.com/file/d/1WWQrD7PDI3YC_7NwOzWGsjGjrLGl6Sy5/view?usp=share_link"
-        // required:true
     },
     currYear:{
         type:String,
@@ -33,13 +24,19 @@ const detailSchema=new Schema({
     },
     technologies:[],
     apk_views:[],
-    vid1:{
+    file1:{
+        type:String,
+    },
+    file2:{
+        type:String,
+    },
+    file3:{
         type:String,
         default:null
     },
     repolink:{
         type:String,
-        required:true
+        // required:true
     },
     weblink:{
         type:String

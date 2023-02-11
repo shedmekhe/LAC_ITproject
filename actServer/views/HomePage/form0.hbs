@@ -1,0 +1,152 @@
+<html>
+    <form method="POST" action="/locate" enctype="multipart/form-data>
+    <h3>Project details</h3>
+                    <font color="red" align="center">
+                        <h5>Do fill carefully according to the instructions from Guide !!!</h1>
+                    </font>
+    <input type="text" placeholder="Project Title" id="title" name="title" required>
+  {{!-- <label for="fname">First name:</label><br> --}}
+  {{!-- <input type="text" id="fname" name="fname"><br> --}}
+     <label for="currYear">Academic Year:</label><br>
+                            <select id="currYear" name="currYear" class="select">
+                                <option  value="none" selected disabled hidden>Select</option>
+                                <option  value="2021-2022">2021-22</option>
+                                <option  value="2022-2023">2022-23</option>
+                                <option  value="2023-2024">2023-24</option>
+                            </select>
+        <label for="semester">Semester</label><br>
+                            <select id="semester" name="semester">
+                                <option value="none" selected disabled hidden>Select</option>
+                                <option value="SEM-I">SEM-I</option>
+                                <option value="SEM-II">SEM-II</option>
+                            </select>
+
+        <label for="academic">Year</label><br>
+                            <select id="academic" name="academic">
+                                <option value="none" selected disabled hidden>Select</option>
+                                <option value="SY">SY</option>
+                                <option value="TY">TY</option>
+                                <option value="BTech">BTech</option>
+                            </select>
+  <input type="submit" value="Submit">
+</form>
+</html>
+{{!-- <html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/form.css">
+    <link rel="stylesheet" href="css/form-multiselect.css">
+    <title>Project Upload Form</title>
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://kit.fontawesome.com/7951bd2be7.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.0.0/mdb.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/css/select2.min.css" rel="stylesheet" />
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/js/select2.min.js"></script> -->
+    <!-- MDB -->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.0.0/mdb.min.js"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+</head>
+
+<body>
+    <header>
+        <nav>
+            <a href="./" class="logo">
+                <img src="images/logo.jpg" />
+            </a>
+            <ul>
+                <li><a href="./">Home</a></li>
+            </ul>
+        </nav>
+    </header>
+
+
+    <div class="main">
+
+
+        <div class="container">
+
+            <div class="header-bar"></div>
+
+            {{!-- <div class="progress-form">
+                <div class="numbers">
+                    <p class="setp-number" id="step_one">1</p>
+                    <p class="setp-number" id="step_two">2</p>
+                    <p class="setp-number" id="step_three">3</p>
+                    <!-- <p class="setp-number" id="step_four">4</p> -->
+                </div> --}}
+                {{!-- <div class="progress-bar" id="progressBar"></div> --}}
+
+            {{!-- </div> --}}
+            {{!-- <button id="loadData" type="button" onclick="uploading()">Upload</button> --}}
+            <!-- <div class="form"> -->
+
+            <form method="POST" action="/locate" enctype="multipart/form-data">
+                <div class="step-one" id="formStepOne">
+                    <h3>Project details</h3>
+                    <font color="red" align="center">
+                        <h5>Do fill carefully according to the instructions from Guide !!!</h1>
+                    </font>
+                    <input type="text" placeholder="Project Title" id="title" name="title" required>
+                    {{!-- <input type="text" placeholder="Project Objective" id="obj" name="obj" minlength="80" required> --}}
+                    {{!-- <div class="upload-flex">
+                        <label for="file1">Project report </label>
+                        <input type="file" id="file1" class="upload-box" name="file1"><br>
+                        <label for="file1">Upload logo or poster of your project</label>
+                        <input type="file" id="file2" class="upload-box" name="file2">
+                    </div> --}}
+                    <div class="flexdropdown">
+                        <div class="dropdowns">
+                            <label for="currYear">Academic Year:</label><br>
+                            <select id="currYear" name="currYear" class="select">
+                                <option  value="none" selected disabled hidden>Select</option>
+                                <option  value="2021-2022">2021-22</option>
+                                <option  value="2022-2023">2022-23</option>
+                                <option  value="2023-2024">2023-24</option>
+                            </select>
+                        </div>
+                        <div class="dropdowns" class="select">
+                            <label for="semester">Semester</label><br>
+                            <select id="semester" name="semester">
+                                <option value="none" selected disabled hidden>Select</option>
+                                <option value="SEM-I">SEM-I</option>
+                                <option value="SEM-II">SEM-II</option>
+                            </select>
+                        </div>
+                        <div class="dropdowns" class="select">
+                            <label for="academic">Year</label><br>
+                            <select id="academic" name="academic">
+                                <option value="none" selected disabled hidden>Select</option>
+                                <option value="SY">SY</option>
+                                <option value="TY">TY</option>
+                                <option value="BTech">BTech</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="buttons" id="buttonsCTN">
+                    <button id="save" type="submit" onclick="createDir()">Done</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    {{!-- <script>
+        var selectedValue = document.getElementById("currYear").value();
+        console.log(`${selectedValue}`);
+    </script> --}}
+
+    <script src="javascripts/save.js"></script>
+</body>
+
+</html> --}}

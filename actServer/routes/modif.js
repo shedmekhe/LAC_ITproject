@@ -38,7 +38,7 @@ const upload = multer({ storage: storage,
     limits:{
         fileSize:1024*1024*5
     },
-    fileFilter: imageFileFilter}).single('myfile1');
+    fileFilter: imageFileFilter}).single('file2');
 
 formRouter.route('/')
 .get((req,res,next)=>{
@@ -71,8 +71,8 @@ module.exports=formRouter;
 // {   
 //     title:req.body.title,
 //     obj:req.body.obj,
-//     myfile:req.body.myfile,
-//     myfile1:req.myfile1.filename,
+//     file1:req.body.file1,
+//     file2:req.file2.filename,
 //     yname:req.body.yname,
 //     email:req.body.email,
 //     socialink:req.body.socialink,
@@ -80,7 +80,7 @@ module.exports=formRouter;
 //     gname:req.body.gname,
 //     technologies:req.body.technologies,
 //     apk_views:req.body.apk_views,
-//     vid1:req.body.vid1,
+//     file3:req.body.file3,
 //     repolink:req.body.repolink,
 //     weblink:req.body.weblink,
 //     apkf:req.body.apkfs,
@@ -122,7 +122,7 @@ const upload = multer({ storage: storage,
     limits:{
         fileSize:1024*1024*5
     },
-    fileFilter: imageFileFilter}).single('myfile1');
+    fileFilter: imageFileFilter}).single('file2');
 
 formRouter.route('/')
 .get((req,res,next)=>{
@@ -130,7 +130,7 @@ formRouter.route('/')
 })
 .post(upload,async(req,res)=>{
     try{
-        // console.log(req.myfile1.filename);
+        // console.log(req.file2.filename);
         await Projects.create(
            req.body
         )   
@@ -150,8 +150,8 @@ module.exports=formRouter;
 // {   
 //     title:req.body.title,
 //     obj:req.body.obj,
-//     myfile:req.body.myfile,
-//     myfile1:req.myfile1.filename,
+//     file1:req.body.file1,
+//     file2:req.file2.filename,
 //     yname:req.body.yname,
 //     email:req.body.email,
 //     socialink:req.body.socialink,
@@ -159,7 +159,7 @@ module.exports=formRouter;
 //     gname:req.body.gname,
 //     technologies:req.body.technologies,
 //     apk_views:req.body.apk_views,
-//     vid1:req.body.vid1,
+//     file3:req.body.file3,
 //     repolink:req.body.repolink,
 //     weblink:req.body.weblink,
 //     apkf:req.body.apkfs,

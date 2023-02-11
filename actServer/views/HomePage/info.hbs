@@ -111,14 +111,20 @@
     </div>
     <h3 class="headlines m-cent align-c pd-1"> Glimpses of Project </h3>
     <div class="w3-content w3-display-container slid  border">
-        <img class="mySlides" src="{{proj.myfile1}}" />
-        <img class="mySlides" src="{{proj.myfile1}}" />
-        <img class="mySlides" src="{{proj.myfile1}}" />
-        <img class="mySlides" src="{{proj.myfile1}}" />
-        <button class="w3-button w3-display-left" onclick="plusDivs(-1)">&#10094;</button>
-        <button class="w3-button w3-display-right" onclick="plusDivs(+1)">&#10095;</button>
+  <video width="100%" height="525" controls>
+  <source src="/{{proj.file3}}" type="video/mp4">
+  Your browser does not support the video tag.
+</video>
     </div>
-
+    </div>
+    <h3 class="headlines m-cent align-c pd-1"> Glimpses of Project </h3>
+    <div class="w3-content w3-display-container slid  border">
+        <iframe src="/{{proj.file1}}" width="100%" height="100%" style="border: none;">
+   It looks like the browser you are using does not support PDFs. However, you can still download my resume to view it:</a>
+  </iframe>
+        {{!-- <img class="mySlides" src="/{{proj.file1}}" /> --}}
+        {{!-- <img class="mySlides" src="{{proj.file2}}" /> --}}
+    </div>
 
     <!-- <div class="align-c1">
         <h2 class="headlines pd-2" style="margin-bottom: 30px;margin-top: 25px;">In Nutshell</h2>

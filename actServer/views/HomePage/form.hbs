@@ -64,10 +64,10 @@
                     <input type="text" placeholder="Project Title" id="title" name="title" required>
                     <input type="text" placeholder="Project Objective" id="obj" name="obj" minlength="80" required>
                     <div class="upload-flex">
-                        <label for="myfile">Project report </label>
-                        <input type="file" id="myfile" class="upload-box" name="myfile"><br>
-                        <label for="myfile">Upload logo or poster of your project</label>
-                        <input type="file" id="myfile1" class="upload-box" name="myfile1">
+                        <label for="file1">Project report </label>
+                        <input type="file" id="file1" class="upload-box" name="file1"><br>
+                        <label for="file2">Upload logo or poster of your project</label>
+                        <input type="file" id="file2" class="upload-box" name="file2">
                     </div>
                     <div class="flexdropdown">
                         <div class="dropdowns">
@@ -144,17 +144,17 @@
                             <option value="Deep Learning">Deep Learning</option>
                         </select>
                     </div>
-                    <label for="myfile" style="margin-right: 115px">Video demo (if any)</label>
-                    <input type="file" id="vid1" class="upload-box" name="vid1"><br>
-                    <label for="myfile" style="margin-right: 10px">Some glimpses of your application</label>
+                    <label for="file3" style="margin-right: 115px">Video demo (if any)</label>
+                    <input type="file" id="file3" class="upload-box" name="file3"><br>
+                    <label for="file1" style="margin-right: 10px">Some glimpses of your application</label>
                     <input type="file" id="apk_views" class="upload-box" name="apk_views" multiple><br>
                     <input type="text" placeholder="Project Repository link (Github)" name="repolink" id="repolink">
                     <div class="flex-input">
                         {{!-- <input type="text" placeholder="Website link" name="weblink" id="weblink"> --}}
                         <input type="text" placeholder="Your Project Guide / Mentor Name (if any)" id="gname"
                             name="gname">
-                        {{!-- <label for="myfile" style="margin-left: 50px">App apk</label> --}}
-                        {{!-- <input type="file" id="myfile" class="upload-box" name="apkf"><br> --}}
+                        {{!-- <label for="file1" style="margin-left: 50px">App apk</label> --}}
+                        {{!-- <input type="file" id="file1" class="upload-box" name="apkf"><br> --}}
                         {{!-- <button id="done" type="submit" onclick="postData()">Done</button> --}}
                     </div>
 
@@ -166,7 +166,7 @@
 
                 <div class="buttons" id="buttonsCTN">
                     <button id="prev" type="button">Previous</button>
-                    <button id="next" type="button" onclick="myfunction()">Next</button>
+                    <button id="next" type="submit" onclick="postData()">Next</button>
                     <button id="done" type="submit" onclick="postData()">Done</button>
                 </div>
             </form>

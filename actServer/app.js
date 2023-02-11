@@ -32,14 +32,14 @@ app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(__dirname, './public/')));
+app.use(express.static(path.join(__dirname, './local_storage/')));
 app.set("view engine","hbs")
 app.set("views",template_path);
 
 
 app.use('/', indexRouter);
 app.use('/form',formRouter);
-// app.use('/users', usersRouter);
 app.use('/all',lrouter);
 app.use('/dash',dboardRouter);
 app.use('/user',userRoute);

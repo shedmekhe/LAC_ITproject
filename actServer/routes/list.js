@@ -4,11 +4,13 @@ const express = require('express');
 const lrouter = express.Router();
 const products  = require('../models/project_details')
 const path=require('path');
+const exp = require('constants');
 const info_path=path.join(__dirname,'views/HomePage')
 const app = express();
 app.set("view engine","hbs")
 app.set("views",info_path);
 app.use(express.static(path.join(__dirname,'./public/')))
+app.use(express.static(path.join(__dirname, './local_storage/')));
 lrouter.use(bodyParser.json());
 
 lrouter.route('/')
@@ -27,6 +29,7 @@ lrouter.route('/')
 
 lrouter.route('/:projTitle')
 .get(async(req,res,next)=>{
+    console.log("Reached in list.js///")
     const userData=await products.findOne({title:req.params.projTitle})
     .then((proj)=>{
         let len = proj["technologies"].length;

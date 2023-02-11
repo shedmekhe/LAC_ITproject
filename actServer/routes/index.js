@@ -9,6 +9,7 @@ const app = express();
 app.set("view engine","hbs")
 app.set("views",info_path);
 app.use(express.static(path.join(__dirname,'./public/')))
+app.use(express.static(path.join(__dirname, './local_storage/')));
 router.use(bodyParser.json());
 
 /* GET home page. */
@@ -18,7 +19,7 @@ router.get('/',loginrequired,async(req, res, next)=>{
       // console.log(proj);
       // var tmp = [];
       // proj.map((p)=>{
-      //   tmp.push(p.myfile1)
+      //   tmp.push(p.file2)
       // })
         // let len = proj["technologies"].length;
         // res.statusCode=200;
