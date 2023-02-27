@@ -225,7 +225,7 @@ nav ul li a span{
   font-family: 'Montserrat', 'sans-serif';
   font-size: 120%;
   text-decoration: none;
-  color: black;
+  color: white;
   border: black solid 2px;
   font-weight: bold;
 }
@@ -315,6 +315,7 @@ select{
   margin: 0 2rem;
 }
 .dropdowns label{
+  color: white;
   font-size: 2rem;
   font-weight: 500;
 }

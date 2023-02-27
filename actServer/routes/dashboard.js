@@ -10,7 +10,8 @@ const { loginrequired } = require('../config/JWT');
 router.get('/',loginrequired,  async(req, res, next)=>{
   let _id=res.user;
   let curr_user =await User.findOne({"_id":_id});
-  let projectData= await projects.find({$and:[{email:email}]})
+  let cemail = curr_user.email;
+  let projectData= await projects.find({$and:[{email:cemail}]})
   res.render('dashboard/dashboard',{proj:projectData});
      
   })
