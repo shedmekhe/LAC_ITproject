@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/css/auth/auth-style.css">
+
+</head>
+
+
+
+<body>
+    <nav>
+    <h1><a href="/">DevSpace</a></h1>
+    <ul>
+      {{#if user}}
+        <li>Welcome, {{user.email}}</li>
+        <li><a href="/logout">Log out</a></li>
+      {{else}}
+        <li><a href="/user/login" class="btn">Log in</a></li>
+        <li><a href="/user/signup" >Sign up</a></li>
+      {{/if}}
+    </ul>
+    </nav>
+    <div class="container">
+
+        {{#if password_incorrect}}
+          <h4 class="alert">{{password_incorrect}}</h4>
+        {{/if}}
+
+        {{#if login_issue}}
+          <h4 class="alert">{{login_issue}}</h4>
+        {{/if}}
+
+        {{#if empty_credentials}}
+          <h4 class="alert">{{empty_credentials}}</h4>
+        {{/if}}
+
+        {{#if user_not_exist}}
+          <h4 class="alert">{{user_not_exist}}</h4>
+        {{/if}}
+
+        {{#if register_email}}
+          <h4 class="safe">{{register_email}}</h4>        
+        {{/if}}
+
+        {{#if email_msg}}
+          <h4 class="safe">{{email_msg}}</h4>        
+        {{/if}}
+
+        {{#if verify_email}}
+          <h4 class="safe">{{verify_email}}</h4>       
+        {{/if}}
+
+        {{#if passsword_change}}
+          <h4 class="safe">{{passsword_change}}</h4>       
+        {{/if}}
+        
+        <form method="POST">
+        <h2>Login</h2>
+        <label for="email">Email</label>
+        <input type="text" name="email">
+        <label for="password">Password</label>
+        <input type="password" name="password"><br>
+        <input type="submit" class="submit">
+        <br>
+        <a href="/user/email-send">Forgot Password ?</a>
+        {{!-- <h4>Dont have an account ? Register here </h4>
+         <a href="/user/register">Register</a> --}}
+        </form> 
+    </div>
+     
+</body>
+</html>

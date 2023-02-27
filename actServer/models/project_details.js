@@ -7,23 +7,12 @@ const detailSchema=new Schema({
         unique:true,
         required:true
     },
+    email:{
+        type:String
+    },
     obj:{
         type:String,
     },
-    currYear:{
-        type:String,
-        // required:true
-    },
-    semester:{
-        type:String,
-        // required:true
-    },
-    academic:{
-        type:String,
-        // required:true
-    },
-    technologies:[],
-    apk_views:[],
     file1:{
         type:String,
     },
@@ -32,23 +21,33 @@ const detailSchema=new Schema({
     },
     file3:{
         type:String,
-        default:null
+    },
+    currYear:{
+        type:String,
+    },
+    academic:{
+        type:String,
+    },
+    semester:{
+        type:String,
     },
     repolink:{
         type:String,
-        // required:true
     },
-    weblink:{
+    technologies: {
+        type: [String],
+        required: true
+     },
+    currentDate:{
         type:String
     },
-    apkf:{
-        type:String
-    },
-    
+   
 
 }, {
         timestamps:true
     }
 )
+
+
 var Projects=mongoose.model('Project',detailSchema);
 module.exports=Projects;

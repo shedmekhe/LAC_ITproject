@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <link rel="stylesheet" href="css/home/style.css">
+  <link rel="stylesheet" href="css/home/multi-select-tag.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Miniproject</title>
+  <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/habibmhamadi/multi-select-tag/dist/css/multi-select-tag.css"> -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <script src="https://kit.fontawesome.com/7951bd2be7.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <!-- <script src="multi-input.js"></script> -->
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.0.0/mdb.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+    integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+    integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
+    integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
+    crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+    integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+  <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/css/select2.min.css" rel="stylesheet" />
+  <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/js/select2.min.js"></script>
+  <!-- Google fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400&display=swap" rel="stylesheet">
+</head>
+<!-- style="display: inline; margin: 8px 3px auto; " -->
+
+<body>
+  <div class="navigation">
+    <header class="navbar" id="navib">
+      <nav>
+        <a href="/home" class="logo">
+          <img src="images/logo.jpg" />
+        </a>
+        <ul class="options">
+                    <li><a href="/home/download/report" href="javascript:void(0)" style="text-decoration: none;"><span>Sample Report</span></a>
+          </li>
+          <li><a href="/home/download/reportTemplate" href="javascript:void(0)" style="text-decoration: none;"><span>Sample Template</span></a>
+          </li>
+          <li><a href="/dashboard" href="javascript:void(0)" style="text-decoration: none;"><span>My Projects</span></a>
+          </li>
+          <li><a href="/user/logout" href="javascript:void(0)" style="text-decoration: none;"><i
+                class="fas fa-sign-out-alt"></i></a>
+            {{!-- <img src="images/brave.png" class="user-pic" style="margin-right: 40px;"> --}}
+        </ul>
+      </nav>
+    </header>
+  </div>
+  <div class="homedata">
+    <div class="col-1">
+      <h1>Platform to showcase your projects</h1>
+      <div class="typing-text">
+      <h3>
+        <p id="typing"></p>
+      </h3>
+    </div>
+      <a class="expbutton" href="form">Upload Project</a>
+    </div>
+    <div class="col-2">
+      <img src="images/Walchand75.jpg">
+    </div>
+  </div>
+  <section class="homepage" id="menu">
+    <div class="projects-div">
+      <div class="project-content">
+        <h1>Search projects of IT department in few clicks....</h1>
+      </div>
+      <div class="dropdown">
+        <div class="drop-box">
+          <form action="/home" method="POST">
+            <div class="dropdowns">
+              <label for="year">Select a year:</label>
+              <select name="year" id="currYear"><option value="none" selected disabled hidden>Select year</option></select>
+            </div>
+            <div class="dropdowns" class="select">
+              <label for="academic">Academic year</label><br>
+              <select id="academic" name="academic">
+                <option value="none" selected disabled hidden>Select an Option</option>
+                <option value="SY">Second Year</option>
+                <option value="TY">Third Year</option>
+                <option value="BTECH">B.TECH</option>
+              </select>
+            </div>
+            <div class="dropdowns" class="select">
+              <label for="semester">Semester</label><br>
+              <select id="semester" name="semester">
+                <option value="none" selected disabled hidden>Select an Option</option>
+                <option value="SEM-I">Semester I</option>
+                <option value="SEM-II">Semester II</option>
+              </select>
+            </div>
+            <div class="search-button">
+            <button type="submit" id="search-button">Search</button>
+            </div>
+          </form>
+        </div>
+      </div>
+      {{!-- <div id='myFooter'>
+        <a href='#myFooter' />
+      </div> --}}
+      {{!-- hello="../../" --}}
+      <div class="container">
+        <div class="border-div">
+          <div class="cards grid-row">
+            {{#proj}}
+            <div class="card">
+              <div class="card-top">
+                <a href="/project/{{title}}">
+                  <img src="{{file2}}" width="200" height="100">
+              </div>
+              <div class="card-info">
+                <h2>{{title}}</h2>
+                <span class="date">{{currentDate}}</span>
+                <h4>
+                  <p class="details">{{obj}}</p>
+                </h4>
+                <h2 class="headlines pd-1" style="margin-bottom: 30px;margin-top: 25px;">{{technologies}}</h2>
+
+                {{!-- <span>{{technologies}}</span> --}}
+              </div>
+              <div class="card-bottom flex-row">
+                <!-- <a href="#" class="read-more">View Project</a> -->
+                {{!-- <a href="#" class="button btn-sky">View Project</a> --}}
+              </div>
+              </a>
+            </div>
+            {{/proj}}
+          </div>
+          <div class="pagination">
+          <li class="page-item previous-page disable"><a class="page-link" href="#">Prev</a></li>
+          <li class="page-item current-page active"><a class="page-link" href="#">1</a></li>
+          <li class="page-item dots"><a class="page-link" href="#">...</a></li>
+          <li class="page-item current-page"><a class="page-link" href="#">5</a></li>
+          <li class="page-item current-page"><a class="page-link" href="#">6</a></li>
+          <li class="page-item dots"><a class="page-link" href="#">...</a></li>
+          <li class="page-item current-page"><a class="page-link" href="#">10</a></li>
+          <li class="page-item next-page"><a class="page-link" href="#">Next</a></li>
+        </div>
+          
+        </div>
+        
+      </div>
+    </div>
+
+  </section>
+  <script src="javascripts/index.js"></script>
+  <script src="javascripts/multi-select-tag.js"></script>
+  <!-- <script src="https://cdn.jsdelivr.net/gh/habibmhamadi/multi-select-tag/dist/js/multi-select-tag.js"></script> -->
+  <script>
+    new MultiSelectTag('technologies')  // id
+  </script>
+  <script>
+    const currentYear = new Date().getFullYear();
+const select = document.getElementById("currYear");
+
+for (let year = currentYear; year >= currentYear - 4; year--) {
+  const option = document.createElement("option");
+  option.value = year;
+  option.text = year;
+  select.appendChild(option);
+}
+  </script>
+<script>
+    new MultiSelectTag('technologies')  // id
+  </script>
+  <script>
+    const text = "Hello, Welcome to DevSpace: A project management website";
+
+    let i = 0;
+    function typingEffect() {
+      if (i < text.length) {
+        document.getElementById("typing").innerHTML += text.charAt(i);
+        i++;
+        setTimeout(typingEffect, 40);
+      }
+    }
+
+    typingEffect();
+
+  </script>
+</body>
+
+</html>

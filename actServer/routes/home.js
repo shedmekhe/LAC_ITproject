@@ -1,40 +1,81 @@
-const express = require('express');
-const path=require('path')
-const router = express.Router();
-const mongoose = require('mongoose');
-const User = require('../models/userModel')
-const {loginrequired} = require('../config/JWT')
-const app=express();
-const info_path=path.join(__dirname,'views/HomePage')
-app.set("view engine","hbs")
-app.set("views",info_path);
-router.get('/',(req,res)=>{
-    res.render('index');
-})
+var express = require("express");
+var router = express.Router();
+const projects = require("../models/project_details");
 
-router.get('/dashboard',loginrequired,(req,res)=>{
-    res.render('dashboard')
-})
+// route --> localhost:3000/home
+router.get("/", async (req, res) => {
+  const userData = await projects.find({}).sort({createdAt: 'desc'});
+  if(userData)
+  {
+    res.render('home/index',{proj:userData})
+  }
+});
 
-router.get('/home',loginrequired,(req,res)=>{
-    // console.log(res.user);
-    const _id=res.user;
-    const curr_user = User.findOne({_id}).then((msg) => {
-        res.render('home',{name : msg.name});
-        
-    }).catch((err) => {
-        console.log(err);
-    });
-    // console.log(curr_user);
-})
+// route --> localhost:3000/home
+router.post("/", async (req, res) => {
+  let year = req.body.currYear;
+  let acad = req.body.academic;
+  let sem = req.body.semester;
 
-router.get('/logout',(req,res)=>{
-    res.cookie('access-token',"",{maxAge: 1 })
-    res.redirect('/user/login');
-})
+  if (!year) {
+    year = "";
+  }
+  if (!acad) {
+    acad = "";
+  }
+  if (!sem) {
+    sem = "";
+  }
 
-router.get('/project',(req,res)=>{
-    res.render('project')
-})
+  if (year != "" && acad != "" && sem != "") {
+    var filterParameter = {
+      $and: [{ currYear: year }, { academic: acad }, { semester: sem }],
+    };
+  } else if (year == "" && acad != "" && sem != "") {
+    var filterParameter = { $and: [{ academic: acad }, { semester: sem }] };
+  } else if (year != "" && acad == "" && sem != "") {
+    var filterParameter = { $and: [{ currYear: year }, { semester: sem }] };
+  } else if (year != "" && acad != "" && sem == "") {
+    var filterParameter = { $and: [{ currYear: year }, { academic: acad }] };
+  } else if (year == "" && acad == "" && sem != "") {
+    var filterParameter = { $and: [{ semester: sem }] };
+  } else if (year == "" && acad != "" && sem == "") {
+    var filterParameter = { $and: [{ academic: acad }] };
+  } else if (year != "" && acad == "" && sem == "") {
+    var filterParameter = { $and: [{ currYear: year }] };
+  } else {
+    var filterParameter = {};
+  }
+  const projectFilter = await projects.find(filterParameter);
+  res.render("home/index", { proj: projectFilter });
+});
+
+router.get("/download/report", (req, res) => {
+  const filePath = "local_storage/sampleFiles/report.pdf";
+  res.download(
+      filePath, 
+      "Sample-Report.pdf", // Remember to include file extension
+      (err) => {
+          if (err) {
+              res.send({
+                  msg   : "Problem downloading the file"
+              })
+          }
+  });
+});
+
+router.get("/download/reportTemplate", (req, res) => {
+  const filePath = "local_storage/sampleFiles/reportTemplate.docx";
+  res.download(
+      filePath, 
+      "Report-Template.docx", // Remember to include file extension
+      (err) => {
+          if (err) {
+              res.send({
+                  msg   : "Problem downloading the file"
+              })
+          }
+  });
+});
 
 module.exports = router;

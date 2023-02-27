@@ -1,64 +1,56 @@
-var createError = require('http-errors');
 var express = require('express');
+var app = express();
 var path = require('path');
 const dotenv=require('dotenv').config();
-var cookieParser = require('cookie-parser');
-var logger = require('morgan');
 const hbs=require("hbs");
-var lrouter=require('./routes/list');
-var formRouter=require('./routes/formRouter');
-var indexRouter = require('./routes/index');
-// var usersRouter = require('./routes/users');
-var dboardRouter=require('./routes/dboard');
+var projectRouter=require('./routes/project');
+var formRouter=require('./routes/form');
+var dboardRouter=require('./routes/dashboard');
+var homeRouter=require('./routes/home')
+var userRouter=require('./routes/user')
 const mongoose =require('mongoose');
-const url = "mongodb://0.0.0.0:27017/DevPlace";
-var FileStore=require('session-file-store');
-var app = express();
-var homeRoute=require('./routes/home')
-var userRoute=require('./routes/user')
-const welcomeRoute=require('./routes/welcome')
-const connect=mongoose.connect(url)
+const flash = require('connect-flash');
+const session = require('express-session')
+const cookieParser = require('cookie-parser')
+const url = process.env.DB_URL;
+
+mongoose.connect(url,{
+  useNewUrlParser: true, useUnifiedTopology: true,
+})
 .then((db)=>{
   console.log("Connected correctly to the Server ");  
 },(err)=>{
   console.log("Error occured while connecting...",err);
 })
 
-// view engine setup
-app.set('views', path.join(__dirname, 'views'));
-app.set('view engine', 'jade');
-const template_path=path.join(__dirname,'views/HomePage')
-app.use(logger('dev'));
+app.set("view engine","hbs");
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
-app.use(cookieParser());
+const template_path=path.join(__dirname,'views/')
+app.set("views",template_path);
 app.use(express.static(path.join(__dirname, './public/')));
 app.use(express.static(path.join(__dirname, './local_storage/')));
-app.set("view engine","hbs")
-app.set("views",template_path);
+
+app.use(cookieParser(process.env.JWT_SECRET));
+app.use(session({
+  secret: process.env.JWT_SECRET,
+  cookie: {maxAge: 20000}, //20s
+  resave:true,
+  saveUninitialized: true
+}));
+app.use(flash()); 
 
 
-app.use('/', indexRouter);
+app.use('/home', homeRouter);
 app.use('/form',formRouter);
-app.use('/all',lrouter);
-app.use('/dash',dboardRouter);
-app.use('/user',userRoute);
-app.use('/welcome',welcomeRoute)
+app.use('/project',projectRouter);
+app.use('/dashboard',dboardRouter);
+app.use('/user',userRouter);
 
-// catch 404 and forward to error handler
-app.use(function(req, res, next) {
-  next(createError(404));
-});
 
-// error handler
-app.use(function(err, req, res, next) {
-  // set locals, only providing error in development
-  res.locals.message = err.message;
-  res.locals.error = req.app.get('env') === 'development' ? err : {};
+app.get('/',(req,res)=>{
+  res.render('welcome');
+})
 
-  // render the error page
-  res.status(err.status || 500);
-  res.render('error');
-});
 
 module.exports = app;
