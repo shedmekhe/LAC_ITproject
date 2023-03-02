@@ -7,7 +7,7 @@ router.get("/", async (req, res) => {
   const userData = await projects.find({}).sort({createdAt: 'desc'});
   if(userData)
   {
-    res.render('home/index',{proj:userData})
+    res.render('home/home',{proj:userData})
   }
 });
 
@@ -47,7 +47,7 @@ router.post("/", async (req, res) => {
     var filterParameter = {};
   }
   const projectFilter = await projects.find(filterParameter);
-  res.render("home/index", { proj: projectFilter });
+  res.render("home/home", { proj: projectFilter });
 });
 
 router.get("/download/report", (req, res) => {

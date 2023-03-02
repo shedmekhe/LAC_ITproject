@@ -7,7 +7,7 @@ const path=require('path');
 router.get('/',async(req,res)=>{
     try {
         const userData  = await products.find();
-        res.render('project/info',{userData:userData});
+        res.render('project/project',{userData:userData});
         
     } catch (error) {
         res.status(404).send(error);
@@ -16,7 +16,7 @@ router.get('/',async(req,res)=>{
 
 router.get('/:projTitle',async(req,res)=>{
     const userData=await products.findOne({title:req.params.projTitle})
-        res.render('project/info',{proj:userData});
+        res.render('project/project',{proj:userData});
     
 });
 

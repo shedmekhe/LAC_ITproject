@@ -81,7 +81,7 @@
         <div class="drop-box">
           <form action="/home" method="POST">
             <div class="dropdowns">
-              <label for="year">Select a year:</label>
+              <label for="year">Year:</label><br>
               <select name="year" id="currYear"><option value="none" selected disabled hidden>Select year</option></select>
             </div>
             <div class="dropdowns" class="select">
@@ -155,6 +155,9 @@
     </div>
 
   </section>
+
+
+
   <script src="javascripts/index.js"></script>
   <script src="javascripts/multi-select-tag.js"></script>
   <!-- <script src="https://cdn.jsdelivr.net/gh/habibmhamadi/multi-select-tag/dist/js/multi-select-tag.js"></script> -->
@@ -183,7 +186,7 @@ for (let year = currentYear; year >= currentYear - 4; year--) {
       if (i < text.length) {
         document.getElementById("typing").innerHTML += text.charAt(i);
         i++;
-        setTimeout(typingEffect, 40);
+        setTimeout(typingEffect, 60);
       }
     }
 

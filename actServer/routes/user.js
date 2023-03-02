@@ -97,10 +97,11 @@ router.post("/signup", async (req, res) => {
           from: ` "Verify your email" <wceit101@gmail.com>`,
           to: user.email,
           subject: "wceit101 - verify your email",
-          html: `<h2> ${user.name}! Thanks for registering on our site</h2>
-                    <h4> Please verify email to continue ...</h4>
+          html: `<h2> Hello ${user.name}!!</h2>
+                    <h3>Thanks for registering on our site, Please verify email to continue ...</h3>
                     <a href = "http://${req.headers.host}/user/verify-email?token=${user.emailToken}">Verify your Email</a>`,
         };
+        
 
         // sending mail
         transporter.sendMail(mailOptions, function (error, info) {

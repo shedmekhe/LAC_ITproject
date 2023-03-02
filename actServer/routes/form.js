@@ -45,7 +45,7 @@ const storage = multer.diskStorage({
           cb(null, true);
         } else {
           req.flash('report-error',"Report should be in .pdf or .docx format");
-          res.redirect('/form')
+         
           cb(null, false);
         }
       } else if (file.fieldname === "file2") {
@@ -57,7 +57,7 @@ const storage = multer.diskStorage({
           cb(null, true);
         } else {
           req.flash('poster-error',"Poster should be in .jpeg or .jpg or .png format");
-          res.redirect('/form');
+         
           cb(null, false);
           return cb(new Error("Only .png .jpg .jpeg format allowed !!"));
         }
@@ -66,7 +66,7 @@ const storage = multer.diskStorage({
           cb(null, true);
         } else {
           req.flash('video-error',"Video should be in .mp4 or .mkv format");
-          res.redirect('/form');
+          // res.redirect('/form');
           cb(null, false);
           return cb(new Error("Only .mp4 .mkv format allowed !!"));
         }
@@ -84,7 +84,8 @@ router.get('/',loginrequired,(req,res)=>{
   const poster_error = req.flash('poster-error');
   const video_error = req.flash('video-error');
   const report_error = req.flash('report-error');
-  res.render("form/form",{poster_error,video_error,report_error});
+  const title_error = req.flash('title-error')
+  res.render("form/form",{poster_error,video_error,report_error,title_error});
 })
 
 
@@ -159,6 +160,11 @@ router.post('/',multipleUpload,async(req,res)=>{
     });
     
     const checkTitle = await Projects.findOne({title:req.body.title});
+    if(checkTitle)
+    {
+      req.flash('title-error',"Title of project should be unique");
+      res.redirect('/form');
+    }
     
     await Projects.create(
       {
@@ -192,7 +198,7 @@ router.post('/',multipleUpload,async(req,res)=>{
     }
     try
     {
-        console.log("Projects Created !!");
+        // console.log("Projects Created !!");
         res.statusCode=200;
         res.redirect('/home');
       }

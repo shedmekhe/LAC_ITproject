@@ -12,7 +12,7 @@ router.get('/',loginrequired,  async(req, res, next)=>{
   let curr_user =await User.findOne({"_id":_id});
   let cemail = curr_user.email;
   let projectData= await projects.find({$and:[{email:cemail}]})
-  res.render('dashboard/dashboard',{proj:projectData});
+  res.render('dashboard/dashboard',{proj:projectData, user:curr_user});
      
   })
 ;
