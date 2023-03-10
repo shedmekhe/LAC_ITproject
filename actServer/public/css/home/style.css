@@ -75,6 +75,7 @@ nav img {
   max-height: 3.5rem;
   width: auto;
   margin: -1.25rem;
+  /* margin-bottom: 10rem; */
 }
 
 nav ul {
@@ -1337,16 +1338,16 @@ nav {
   /* margin-left: 6.5%; */
   /* margin-top: 10px; */
 }
-nav .logo img{
-  max-height: 12rem;
+nav .logo{
+  max-height: 2rem;
   margin-left: 10px;
-}
-
-nav img {
   display: inline-block;
   max-height: 3.5rem;
   width: auto;
   margin: -1.25rem;
+  margin-bottom: 0.1px;
+  align-items: center;
+  justify-content: center;
 }
 
 nav ul {

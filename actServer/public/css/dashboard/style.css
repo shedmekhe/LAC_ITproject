@@ -132,20 +132,18 @@ nav {
 }
 
 nav .logo img {
-  max-height: 12rem;
-  margin-left: 10px;
+  max-height:8rem;
+  /* margin: 10px 30px; */
+  /* align-items: center;
+  justify-content: center; */
 
   /* margin-left: 10px; */
-}
-
-nav img {
   display: inline-block;
-  max-height: 3.5rem;
   width: auto;
   margin: -1.25rem;
-
-  /* margin: -1.25rem;~ */
+  margin-top: 0.5 rem;
 }
+
 
 nav ul {
   display: flex;
@@ -168,6 +166,8 @@ nav ul li a {
   border-radius: 0.5rem;
   transition: 0.5s;
   color: white;
+  text-align: center;
+  align-items: center;
 }
 
 nav ul li a i {
@@ -230,7 +230,7 @@ nav ul li a span {
 }
 
 .options li a:hover {
-  background-color: rgb(129, 223, 211);
+  background-color: rgb(145,240,134)  ;
   color: white;
   box-shadow: 0.3125rem 0.625rem 1.875rem rgba(144, 239, 180, 0.397);
 }

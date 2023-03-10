@@ -12,7 +12,7 @@ const mongoose =require('mongoose');
 const flash = require('connect-flash');
 const session = require('express-session')
 const cookieParser = require('cookie-parser')
-const url = process.env.DB_URL;
+const url = "mongodb://0.0.0.0:27017/DevPlace";
 
 mongoose.connect(url,{
   useNewUrlParser: true, useUnifiedTopology: true,

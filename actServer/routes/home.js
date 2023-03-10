@@ -51,7 +51,7 @@ router.post("/", async (req, res) => {
 });
 
 router.get("/download/report", (req, res) => {
-  const filePath = "local_storage/sampleFiles/report.pdf";
+  const filePath = "public/sampleFiles/report.pdf";
   res.download(
       filePath, 
       "Sample-Report.pdf", // Remember to include file extension
@@ -65,7 +65,7 @@ router.get("/download/report", (req, res) => {
 });
 
 router.get("/download/reportTemplate", (req, res) => {
-  const filePath = "local_storage/sampleFiles/reportTemplate.docx";
+  const filePath = "public/sampleFiles/ReportTemplate.docx";
   res.download(
       filePath, 
       "Report-Template.docx", // Remember to include file extension

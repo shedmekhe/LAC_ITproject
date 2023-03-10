@@ -148,7 +148,7 @@ footer{
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: rgba(255, 0, 0, 0.637);
+  background-color: rgba(255, 0, 0, 0.918);
   border: 1px black solid;
   margin-inline: auto;
   border-radius: 5px;
@@ -162,7 +162,7 @@ footer{
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: rgb(20, 163, 20);
+  background-color: rgb(99,179,152);
   border: 1px black solid;
 
   margin-inline: auto;
