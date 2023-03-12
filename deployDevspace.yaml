@@ -1,0 +1,140 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: devspace-deployment
+spec:
+  selector:
+    matchLabels:
+      run: devspace
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        run: devspace
+    spec:
+      containers:
+      - name: devspace
+        image: mayursdocker10/devspace
+        ports:
+        - containerPort: 3000
+        env:
+        - name: JWT_SECRET
+          value: "hopewewillwinthegame"
+        - name: EMAIL
+          value: "wceit101@gmail.com"
+        - name: EMAIL_PASSWORD
+          value: "nkacdihbzttnmvkw"
+        - name: IP_ADDRESS
+          value: "10.10.13.182"
+        - name: DB_URL
+          value: 'mongodb://mongoservice:27017'
+        - name: APP_PORT
+          value: '30007'
+        volumeMounts:
+            - name: local-storage
+              mountPath: /local_storage
+      volumes:
+        - name: local-storage
+          persistentVolumeClaim:
+            claimName: my-pvc
+
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mongo-deployment
+spec:
+  selector:
+    matchLabels:
+      run: mongodb
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        run: mongodb
+    spec:
+      containers:
+      - name: mongodb
+        image: mongo
+        ports:
+        - containerPort: 27017
+        env:
+        - name: ME_CONFIG_MONGODB_ADMINUSERNAME
+          value: admin
+        - name: ME_CONFIG_MONGODB_ADMINPASSWORD
+          value: password
+        - name: ME_CONFIG_MONGODB_SERVER
+          value: mongodb
+        volumeMounts:
+            - name: local-storage
+              mountPath: /local_storage
+      volumes:
+        - name: local-storage
+          persistentVolumeClaim:
+            claimName: my-pvc
+
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mongo-express-deployment
+spec:
+  selector:
+    matchLabels:
+      run: mongo-express
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        run: mongo-express
+    spec:
+      containers:
+      - name: mongo-express
+        image: mongo-express
+        ports:
+        - containerPort: 8081
+        env:
+        - name: ME_CONFIG_MONGODB_SERVER
+          value: "mongoservice"
+      
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: devspace-service
+  labels:
+    run: devspace-service
+spec:
+  type: NodePort
+  ports:
+  - port: 3000
+    nodePort: 30007
+  selector:
+    run: devspace
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: mongo-express-service
+  labels:
+    run: mongo-express-service
+spec:
+  type: NodePort
+  ports:
+  - port: 8081
+    nodePort: 30008
+  selector:
+    run: mongo-express
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: mongoservice
+  labels:
+    run: mongoservice
+spec:
+  type: NodePort
+  ports:
+  - port: 27017
+  selector:
+    run: mongodb

@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head> 
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DevSpace</title>
+    <link rel="stylesheet" href="/css/project/styles.css">
+    {{!-- <link rel="shortcut icon" href="favicon.ico" type="image/X-icon"> --}}
+    <script src="https://kit.fontawesome.com/9297f08a76.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="/css/welcome/swiper-bundle.min.css">
+</head>
+
+<body>
+    <div class="top">
+
+        <div class="menu">
+            <nav>
+                <ul>
+                    <li class="navItem"><a href="/home">
+                        <li>Home</li>
+                        </a></li>
+                   <li class="navItem"><a href="/dashboard">Dashboard</a></li> 
+                </ul>
+            </nav>
+        </div>
+        <div>
+            <div class="container ">
+                <div class="header ">
+                    <div class="projectName">
+                        <h1 style="margin-bottom:30px;margin-left:40px;size: 30px;"><b>{{proj.title}}</b></h1>
+                        <p  style="margin-bottom:30px;margin-left:40px;size: 30px;">{{proj.obj}}</p>
+                  
+                        <div class="wrapper align-c m-5">
+                            <div class="icon user">
+                                <div class="tooltip">{{proj.guide}}</div>
+                                <!-- <span><i class="fa-brands fa-react"></i></span> -->
+                                <span>
+                                    <i class="fa-solid fa-user fa-2x"></i>
+                                </span>
+                        <p class="pd-1">Guide name</p>
+
+                            </div>
+                            <div class="icon email">
+                                <div class="tooltip">{{proj.email}}</div>
+                                <!-- <span><i class="fa-brands fa-react"></i></span> -->
+                                <a href="mailto:{{proj.email}}">
+                                <span>
+                                    <i class="fa-solid fa-envelope fa-2x"></i>
+                                </span>
+                            </a>
+                            
+                        <p class="pd-1">Project Leader Email</p>
+
+                            </div>
+                            <div class="icon react">
+                        <div class="tooltip">Github</div>
+                        <!-- <span><i class="fa-brands fa-react"></i></span> -->
+                         <a href="{{proj.repolink}}">
+                            <span>
+                                <i class="fa-brands fa-github fa-2x"></i>
+                            </span>
+                        </a>
+                        <p class="pd-1">Github Link</p>
+                    </div>
+                        </div>
+                        <div>
+
+                        </div>
+                    </div>
+                    <div class="lotty">
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <h3 class="headlines m-cent align-c pd-1"> Project Demo  </h3>
+    <div class="w3-content w3-display-container slid  border">
+  <video width="100%" height="500" controls>
+  <source src="/{{proj.file3}}" type="video/mp4">
+  Your browser does not support the video tag.
+</video>
+    </div>
+    </div>
+    <h3 class="headlines m-cent align-c pd-1"> Project Report </h3>
+    <div class="w3-content w3-display-container slid  border">
+        <iframe src="/{{proj.file1}}" width="100%" height="100%" style="border: none;">
+            It looks like the browser you are using does not support PDFs. However, you can still download my resume to
+            view it:</a>
+        </iframe>
+        {{!-- <img class="mySlides" src="/{{proj.file1}}" /> --}}
+        {{!-- <img class="mySlides" src="{{proj.file2}}" /> --}}
+    </div>
+
+        <div class="stack align-c1 m-5">
+            <h2 class="headlines pd-2 m-b">Resources </h2>
+            <div class="technologyUsed">
+                <div class="wrapper align-c">
+                    <div class="icon react">
+                        <div class="tooltip">{{proj.technologies}}</div>
+                        <!-- <span><i class="fa-brands fa-react"></i></span> -->
+                        <span>
+                            <i class="fa-sharp fa-solid fa-layer-group"></i>
+                        </span>
+                        <p class="pd-1">Tech Stack Used</p>
+                    </div>
+                    <div class="icon react">
+                        <div class="tooltip">Github</div>
+                        <!-- <span><i class="fa-brands fa-react"></i></span> -->
+                         <a href="{{proj.repolink}}">
+                            <span>
+                                <i class="fa-brands fa-github fa-2x"></i>
+                            </span>
+                        </a>
+                        <p class="pd-1">Github Link</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+
+    <footer class="footer m-5">
+        <div class="container">
+            <div class="row">
+                <div class="footer-col">
+                    <h4>contact us : </h4>
+                    <ul>
+                        <li><a href='mailto:devspace.help@gmail.com'><i class="fa-solid fa-envelope"></i>
+                                    devspace.help@gmail.com</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+<script>
+    document.getElementsByClassName("nav-optimise").addEventListener("click",()=>{
+        document.getElementsByClassName("nav-optimise").style.display = "block";
+    })
+    </script>
+<script>
+    var slideIndex = 1;
+    showDivs(slideIndex);
+
+    function plusDivs(n) {
+        showDivs(slideIndex += n);
+    }
+
+    function showDivs(n) {
+        var i;
+        var x = document.getElementsByClassName("mySlides");
+        if (n > x.length) { slideIndex = 1 }
+        if (n < 1) { slideIndex = x.length }
+        for (i = 0; i < x.length; i++) {
+            x[i].style.display = "none";
+        }
+        x[slideIndex - 1].style.display = "block";
+    }
+</script>
+
+</html>
