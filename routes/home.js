@@ -13,7 +13,7 @@ router.get("/", async (req, res) => {
 
 // route --> localhost:3000/home
 router.post("/", async (req, res) => {
-  let year = req.body.currYear;
+  let year = req.body.year;
   let acad = req.body.academic;
   let sem = req.body.semester;
 
